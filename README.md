@@ -1,4 +1,7 @@
 # Project Title
+
+Project description
+
 ## Installation
 
 ### Requirements
@@ -11,7 +14,7 @@
   uv sync
 ```
 
-## Run Locally
+## Running the project
 
 To run the project locally, run the following command:
 
@@ -38,4 +41,4 @@ We can use UV tools to lint and format the code.
 
 ## License
 
-This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details.
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
