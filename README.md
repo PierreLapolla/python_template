@@ -11,8 +11,6 @@
   uv sync
 ```
 
-If you don't want to use uv, dependencies are listed in the [pyproject.toml](pyproject.toml) file.
-
 ## Run Locally
 
 To run the project locally, run the following command:
@@ -26,7 +24,7 @@ To run the project locally, run the following command:
 To run tests, run the following command:
 
 ```bash
-  uv run pytest --cov=. --cov-report=html
+  uv run pytest -c pytest.ini --cov=. --cov-report=html
 ```
 
 ## Linting and formatting
@@ -40,4 +38,4 @@ We can use UV tools to lint and format the code.
 
 ## License
 
-No license has been defined for this project yet.
+This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details.
