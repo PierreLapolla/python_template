@@ -1,4 +1,8 @@
+from utils.logger import log
+
+
 def main() -> None:
+    log.info("Hello from python-template!")
     print("Hello from python-template!")
 
 

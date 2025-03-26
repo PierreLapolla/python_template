@@ -27,7 +27,7 @@ To run the project locally, run the following command:
 To run tests, run the following command:
 
 ```bash
-  uv run pytest -c pytest.ini --cov=. --cov-report=html
+  uv run pytest
 ```
 
 ## Linting and formatting
