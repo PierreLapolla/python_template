@@ -7,6 +7,7 @@ Project description
 ### Requirements
 
 - [UV](https://docs.astral.sh/uv/)
+- Rename the project in [pyproject.toml](pyproject.toml) file
 
 ### Sync Dependencies
 
