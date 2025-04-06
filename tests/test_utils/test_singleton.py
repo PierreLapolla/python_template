@@ -9,7 +9,9 @@ def test_singleton_decorator():
 
     instance1 = TestSingletonDecorator()
     instance2 = TestSingletonDecorator()
-    assert instance1 is instance2, "The singleton decorator did not return the same instance"
+    assert instance1 is instance2, (
+        "The singleton decorator did not return the same instance"
+    )
 
 
 def test_singleton_meta():
@@ -19,4 +21,6 @@ def test_singleton_meta():
 
     instance1 = TestSingletonMeta()
     instance2 = TestSingletonMeta()
-    assert instance1 is instance2, "The singleton metaclass did not return the same instance"
+    assert instance1 is instance2, (
+        "The singleton metaclass did not return the same instance"
+    )

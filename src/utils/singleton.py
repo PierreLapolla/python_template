@@ -32,6 +32,7 @@ class SingletonMeta(type):
     """
     Metaclass implementing the singleton pattern.
     """
+
     _instances = {}
 
     def __call__(cls, *args, **kwargs):

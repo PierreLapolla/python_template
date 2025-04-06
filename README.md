@@ -7,12 +7,13 @@ Project description
 ### Requirements
 
 - [UV](https://docs.astral.sh/uv/)
-- Rename the project in [pyproject.toml](pyproject.toml) file
+- Project name in [pyproject.toml](pyproject.toml) file must be the same as your module's name in `src` folder.
 
-### Sync Dependencies
+### Initialize the project:
 
 ```bash
   uv sync
+  pre-commit install
 ```
 
 ## Running the project
@@ -23,21 +24,27 @@ To run the project locally, run the following command:
   uv run python -m src.python_template
 ```
 
-## Running Tests
+## Tests, linting and formatting
 
-To run tests, run the following command:
+These steps are automatically handled by [pre-commit](https://pre-commit.com/) hooks defined in [.pre-commit-config.yaml](.pre-commit-config.yaml).
+Additionally, we can run them manually with the following commands:
 
 ```bash
   uv run pytest
 ```
 
-## Linting and formatting
-
-We can use UV tools to lint and format the code.
-
 ```bash
   uvx ruff check . --fix
+```
+
+```bash
   uvx ruff format .
+```
+
+You can also run pre-commit hooks manually with:
+
+```bash
+  pre-commit run --all-files
 ```
 
 ## License
