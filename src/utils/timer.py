@@ -18,3 +18,16 @@ def timer(func: callable) -> callable:
         return result
 
     return wrapper
+
+
+if __name__ == "__main__":
+    """
+    Example usage of the timer decorator.
+    """
+
+    @timer
+    def example_function():
+        for _ in range(1000000):
+            pass
+
+    example_function()

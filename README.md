@@ -24,9 +24,10 @@ To run the project locally, run the following command:
   uv run python -m src.python_template
 ```
 
-## Tests, linting and formatting
+## Tests, linting and formatting - AUTOMATED
 
-These steps are automatically handled by [pre-commit](https://pre-commit.com/) hooks defined in [.pre-commit-config.yaml](.pre-commit-config.yaml).
+These steps are automatically handled by [pre-commit](https://pre-commit.com/) hooks defined
+in [.pre-commit-config.yaml](.pre-commit-config.yaml).
 Additionally, we can run them manually with the following commands:
 
 ```bash

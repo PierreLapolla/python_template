@@ -46,3 +46,28 @@ class SingletonMeta(type):
         if cls not in cls._instances:
             cls._instances[cls] = super().__call__(*args, **kwargs)
         return cls._instances[cls]
+
+
+if __name__ == "__main__":
+    """
+    Example usage of the singleton pattern.
+    """
+
+    @singleton
+    class SingletonExempleClass:
+        def __init__(self, value):
+            self.value = value
+
+    singleton_1 = SingletonExempleClass(0)
+    singleton_2 = SingletonExempleClass(1)
+    assert singleton_1 == singleton_2
+    assert singleton_1.value == singleton_2.value
+
+    class SingletonExempleClass(metaclass=SingletonMeta):
+        def __init__(self, value):
+            self.value = value
+
+    singleton_1 = SingletonExempleClass(0)
+    singleton_2 = SingletonExempleClass(1)
+    assert singleton_1 == singleton_2
+    assert singleton_1.value == singleton_2.value
