@@ -13,7 +13,7 @@ Project description
 
 ```bash
   uv sync
-  pre-commit install
+  uv run pre-commit install
 ```
 
 ## Running the project
