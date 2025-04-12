@@ -47,7 +47,7 @@ if __name__ == "__main__":
     def handle_error(e):
         print(f"Error handled: {e}")
 
-    @try_except(finally_callable=cleanup, error_callable=handle_error)
+    @try_except(error_callable=handle_error, finally_callable=cleanup)
     def divide(a, b):
         return a / b
 

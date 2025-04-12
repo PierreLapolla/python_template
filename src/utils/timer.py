@@ -1,4 +1,4 @@
-from time import perf_counter
+from time import perf_counter, sleep
 
 from utils.logger import log
 
@@ -27,7 +27,6 @@ if __name__ == "__main__":
 
     @timer
     def example_function():
-        for _ in range(1000000):
-            pass
+        sleep(1)
 
     example_function()

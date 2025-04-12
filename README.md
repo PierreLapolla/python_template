@@ -28,7 +28,7 @@ To run the project locally, run the following command:
 
 These steps are automatically handled by [pre-commit](https://pre-commit.com/) hooks defined
 in [.pre-commit-config.yaml](.pre-commit-config.yaml).
-Additionally, we can run them manually with the following commands:
+Additionally, you can run them manually with the following commands:
 
 ```bash
   uv run pytest
