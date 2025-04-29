@@ -22,7 +22,8 @@ def try_except(
                 message = f"{func.__name__}: {e.__class__.__name__}: {e}"
                 log.error(message)
                 if error_callable:
-                    error_callable(e)
+                    error_callable()
+                    log.debug(f"Executed error callable: {error_callable.__name__}")
             finally:
                 if finally_callable:
                     finally_callable()
@@ -44,8 +45,8 @@ if __name__ == "__main__":
     def cleanup():
         print("Cleanup executed.")
 
-    def handle_error(e):
-        print(f"Error handled: {e}")
+    def handle_error():
+        print("Error handled.")
 
     @try_except(error_callable=handle_error, finally_callable=cleanup)
     def divide(a, b):

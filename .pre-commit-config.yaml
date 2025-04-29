@@ -11,6 +11,7 @@ repos:
       # formatter.
       - id: ruff-format
         name: Ruff Formatter
+        args: []
 
   # Pytest
   - repo: local
