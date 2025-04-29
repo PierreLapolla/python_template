@@ -1,0 +1,3 @@
+database:
+    name: "mydb"
+    url: "postgresql://user:password@localhost:5432/mydb"

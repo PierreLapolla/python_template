@@ -1,4 +1,4 @@
-from config.__main__ import get_config
+from config.main import _get_config
 
-config = get_config()
+config = _get_config()
 __all__ = ["config"]
