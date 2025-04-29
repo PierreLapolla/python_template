@@ -14,7 +14,7 @@ def timer(func: callable) -> callable:
         start = perf_counter()
         result = func(*args, **kwargs)
         end = perf_counter()
-        log.info(f"Execution time of {func.__name__}: {end - start} seconds")
+        log.debug(f"{func.__name__}: {end - start} seconds")
         return result
 
     return wrapper

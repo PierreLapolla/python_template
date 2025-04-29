@@ -1,6 +1,7 @@
-# Project Title
+# Python Template
 
-Project description
+This project provide a template for Python projects, including a basic structure and configuration files to help you get started quickly.
+It aims to enforce best practices and provide a consistent development experience.
 
 ## Installation
 
@@ -8,6 +9,13 @@ Project description
 
 - [UV](https://docs.astral.sh/uv/)
 - Project name in [pyproject.toml](pyproject.toml) file must be the same as your module's name in `src` folder.
+
+### Clone the repository
+
+```bash
+  git clone https://github.com/PierreLapolla/python_template.git
+  cd python_template
+```
 
 ### Initialize the project:
 

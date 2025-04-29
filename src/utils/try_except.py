@@ -23,11 +23,15 @@ def try_except(
                 log.error(message)
                 if error_callable:
                     error_callable()
-                    log.debug(f"Executed error callable: {error_callable.__name__}")
+                    log.debug(
+                        f"{error_callable.__name__} executed from {func.__name__}"
+                    )
             finally:
                 if finally_callable:
                     finally_callable()
-                    log.debug(f"Executed finally callable: {finally_callable.__name__}")
+                    log.debug(
+                        f"{finally_callable.__name__} executed from {func.__name__}"
+                    )
 
         return wrapper
 
