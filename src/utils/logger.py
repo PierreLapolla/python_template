@@ -2,7 +2,9 @@ import logging
 
 import structlog
 
-structlog.configure(wrapper_class=structlog.make_filtering_bound_logger(logging.DEBUG))
+LOG_LEVEL = logging.DEBUG
+
+structlog.configure(wrapper_class=structlog.make_filtering_bound_logger(LOG_LEVEL))
 
 log = structlog.get_logger()
 

@@ -1,5 +1,6 @@
-from utils.logger import log
+from utils.logger import log, LOG_LEVEL
 from typing import Callable, Any, Optional, TypeVar
+import logging
 
 
 def try_except(
@@ -25,7 +26,7 @@ def try_except(
                 return func(*args, **kwargs)
             except Exception as e:
                 message = f"{func.__name__}: {e.__class__.__name__}: {e}"
-                log.error(message)
+                log.error(message, exc_info=LOG_LEVEL <= logging.DEBUG)
                 if error_callable:
                     error_callable()
                     log.debug(

@@ -21,7 +21,6 @@ It aims to enforce best practices and provide a consistent development experienc
 
 ```bash
   uv sync
-  uv run pre-commit install
 ```
 
 ## Running the project
@@ -53,7 +52,7 @@ Additionally, you can run them manually with the following commands:
 You can also run pre-commit hooks manually with:
 
 ```bash
-  pre-commit run --all-files
+  uv run pre-commit run --all-files
 ```
 
 ## License
