@@ -1,7 +1,6 @@
 from utils.try_except import try_except
 
 
-# Helper to create callables and flag container
 def create_callables():
     flags = {"cleanup_called": False, "error_called": False}
 
@@ -80,14 +79,12 @@ def test_function_with_kwargs():
     def add(a=0, b=0):
         return a + b
 
-    # Valid keyword arguments call
     reset_flags(flags)
     result = add(a=7, b=5)
     assert result == 12
     assert flags["cleanup_called"]
     assert not flags["error_called"]
 
-    # Invalid call triggering exception
     reset_flags(flags)
     result = add(a="a", b=5)
     assert result is None
