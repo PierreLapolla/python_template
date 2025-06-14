@@ -54,10 +54,10 @@ if __name__ == "__main__":
     """
 
     def cleanup():
-        print("Cleanup executed.")
+        log.info("Cleanup executed.")
 
     def handle_error():
-        print("Error handled.")
+        log.info("Error handled.")
 
     @try_except(error_callable=handle_error, finally_callable=cleanup)
     def divide(a, b):

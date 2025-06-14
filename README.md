@@ -16,12 +16,6 @@ It aims to enforce best practices and provide a consistent development experienc
   cd python_template
 ```
 
-### Initialize the project:
-
-```bash
-  uv sync
-```
-
 ## Running the project
 
 To run the project locally, run the following command:
