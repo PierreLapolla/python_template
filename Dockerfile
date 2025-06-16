@@ -1,13 +1,16 @@
 FROM python:3.13-slim
 
 ENV PYTHONUNBUFFERED=1 \
-    PYTHONDONTWRITEBYTECODE=1
+    PYTHONDONTWRITEBYTECODE=1 \
+    UV_VENV_PATH=/app/.venv
 
 WORKDIR /app
 
 COPY --from=ghcr.io/astral-sh/uv:latest /uv /uvx /bin/
 
-RUN useradd -m appuser
+RUN useradd -m appuser && \
+    mkdir -p /app/.venv && \
+    chown -R appuser:appuser /app
 
 COPY --chown=appuser:appuser . .
 
