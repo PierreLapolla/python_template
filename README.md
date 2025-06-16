@@ -7,7 +7,7 @@ It aims to enforce best practices and provide a consistent development experienc
 
 ### Requirements
 
-- [UV](https://docs.astral.sh/uv/)
+- [UV](https://docs.astral.sh/uv/) package manager
 
 ### Clone the repository
 
@@ -21,21 +21,21 @@ It aims to enforce best practices and provide a consistent development experienc
 To run the project locally, run the following command:
 
 ```bash
-  uv run python -m src.app
+  uv run -m src.app
 ```
 
-## Type checks, tests, linting and formatting - AUTOMATED
+## Tests, type checks, linting and formatting - AUTOMATED
 
 These steps are automatically handled by [pre-commit](https://pre-commit.com/) hooks defined
 in [.pre-commit-config.yaml](.pre-commit-config.yaml).
 Additionally, you can run them manually with the following commands:
 
 ```bash
-  uvx ty check
+  uv run pytest
 ```
 
 ```bash
-  uv run pytest
+  uvx ty check
 ```
 
 ```bash
@@ -46,7 +46,7 @@ Additionally, you can run them manually with the following commands:
   uvx ruff format .
 ```
 
-You can also run pre-commit hooks manually with:
+Or you can run all of them at once using pre-commit::
 
 ```bash
   uv run pre-commit run --all-files

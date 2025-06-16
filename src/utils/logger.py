@@ -3,7 +3,7 @@ import os
 import structlog
 
 
-def convert_log_level_string_to_int(log_level: str) -> tuple[int, bool]:
+def convert_log_level_string_to_int(log_level: str) -> int:
     log_levels = {
         "CRITICAL": logging.CRITICAL,
         "ERROR": logging.ERROR,
