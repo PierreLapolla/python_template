@@ -16,4 +16,6 @@ COPY --chown=appuser:appuser . .
 
 USER appuser
 
+RUN uv sync
+
 ENTRYPOINT ["uv", "run", "-m", "src.app"]
