@@ -1,20 +1,19 @@
-FROM python:3.13-slim
+FROM python:3.13.5-slim-bullseye
 
 ENV PYTHONUNBUFFERED=1 \
-    PYTHONDONTWRITEBYTECODE=1 \
-    UV_VENV_PATH=/app/.venv
+    PYTHONDONTWRITEBYTECODE=1
+
+RUN useradd -m appuser && \
+    mkdir -p /app && \
+    chown -R appuser:appuser /app
+
+USER appuser
 
 WORKDIR /app
 
-COPY --from=ghcr.io/astral-sh/uv:latest /uv /uvx /bin/
-
-RUN useradd -m appuser && \
-    mkdir -p /app/.venv && \
-    chown -R appuser:appuser /app
+COPY --from=ghcr.io/astral-sh/uv:0.7.13 /uv /uvx /bin/
 
 COPY --chown=appuser:appuser . .
-
-USER appuser
 
 RUN uv sync
 
