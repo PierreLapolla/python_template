@@ -26,15 +26,15 @@ def try_except(
         def wrapper(*args, **kwargs) -> Optional[R]:
             try:
                 return func(*args, **kwargs)
+
             except exceptions as e:
                 message = f"{func.__name__}: {e.__class__.__name__}: {e}"
                 log.error(message, exc_info=LOG_LEVEL <= logging.DEBUG)
                 if error_callable:
-                    error_callable()
-                    log.debug(
-                        f"{error_callable.__name__} executed from {func.__name__}"
-                    )
+                    log.debug(f"calling {error_callable.__name__} from {func.__name__}")
+                    return error_callable()
                 return None
+
             finally:
                 if finally_callable:
                     finally_callable()
@@ -61,8 +61,13 @@ if __name__ == "__main__":
     def handle_error():
         log.info("Error handled.")
 
-    @try_except(error_callable=handle_error, finally_callable=cleanup)
+    @try_except(
+        exceptions=(ZeroDivisionError, ValueError),
+        error_callable=handle_error,
+        finally_callable=cleanup,
+    )
     def divide(a, b):
         return a / b
 
-    divide(1, 0)
+    return_value = divide(1, 0)
+    log.debug(f"Return value: {return_value}")
