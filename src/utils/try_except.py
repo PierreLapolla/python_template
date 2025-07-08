@@ -1,19 +1,21 @@
-from utils.logger import log, LOG_LEVEL
-from typing import Callable, Any, Optional, TypeVar
 import logging
+from typing import Callable, Any, Optional, TypeVar, Union, Tuple, Type
+
+from utils.logger import log, LOG_LEVEL
 
 
 def try_except(
     _func=None,
     *,
+    exceptions: Union[Type[Exception], Tuple[Type[Exception], ...]] = Exception,
     finally_callable: Optional[Callable[[], Any]] = None,
     error_callable: Optional[Callable[[], Any]] = None,
 ) -> Callable:
     """
     Decorator to catch exceptions in a function.
-    Optionally execute a callable in the finally block or when an error is caught.
 
     :param _func: The function to decorate.
+    :param exceptions: Exception or tuple of exceptions to catch. Default is Exception (catches all exceptions).
     :param finally_callable: Optional parameterless callable to execute in finally.
     :param error_callable: Optional parameterless callable to execute when an error is caught.
     :return: The wrapper function.
@@ -24,7 +26,7 @@ def try_except(
         def wrapper(*args, **kwargs) -> Optional[R]:
             try:
                 return func(*args, **kwargs)
-            except Exception as e:
+            except exceptions as e:
                 message = f"{func.__name__}: {e.__class__.__name__}: {e}"
                 log.error(message, exc_info=LOG_LEVEL <= logging.DEBUG)
                 if error_callable:
