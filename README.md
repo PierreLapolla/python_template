@@ -33,8 +33,6 @@ You can also run the application in a Docker container:
   docker run -it python-app
 ```
 
-The Docker image is optimized for this project and uses UV package manager for dependency management.
-
 ## Tests, type checks, linting and formatting - AUTOMATED
 
 These steps are automatically handled by [pre-commit](https://pre-commit.com/) hooks defined
