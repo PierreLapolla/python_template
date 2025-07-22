@@ -1,5 +1,5 @@
-from utils.logger import log
-from utils.timer import timer
+from decorpack.logger import log
+from decorpack.timer import timer
 
 
 @timer

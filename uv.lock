@@ -7,6 +7,7 @@ name = "app"
 version = "0.1.0"
 source = { editable = "." }
 dependencies = [
+    { name = "decorpack" },
     { name = "dotenv" },
     { name = "structlog" },
 ]
@@ -20,6 +21,7 @@ dev = [
 
 [package.metadata]
 requires-dist = [
+    { name = "decorpack", specifier = ">=1.0.0" },
     { name = "dotenv", specifier = ">=0.9.9" },
     { name = "structlog", specifier = ">=25.3.0" },
 ]
@@ -76,6 +78,19 @@ wheels = [
     { url = "https://files.pythonhosted.org/packages/45/56/7c33f8a6de1b3b079374d2ae490ccf76fb7c094a23f72d10f071989fc3ef/coverage-7.7.0-cp313-cp313t-win32.whl", hash = "sha256:1b336d06af14f8da5b1f391e8dec03634daf54dfcb4d1c4fb6d04c09d83cef90", size = 214284 },
     { url = "https://files.pythonhosted.org/packages/95/ab/657bfa6171800a67bd1c005402f06d6b78610820ef1364ea4f85b04bbb5b/coverage-7.7.0-cp313-cp313t-win_amd64.whl", hash = "sha256:b54a1ee4c6f1905a436cbaa04b26626d27925a41cbc3a337e2d3ff7038187f07", size = 215445 },
     { url = "https://files.pythonhosted.org/packages/2a/ac/60f409a448e5b0e9b8539716f683568aa5848c1be903cdbbc805a552cdf8/coverage-7.7.0-py3-none-any.whl", hash = "sha256:708f0a1105ef2b11c79ed54ed31f17e6325ac936501fc373f24be3e6a578146a", size = 202803 },
+]
+
+[[package]]
+name = "decorpack"
+version = "1.0.0"
+source = { registry = "https://pypi.org/simple" }
+dependencies = [
+    { name = "dotenv" },
+    { name = "structlog" },
+]
+sdist = { url = "https://files.pythonhosted.org/packages/5a/9e/58f5ab9e572c4ca381e4d28a489f72f476fae4608458ef090fcf38252048/decorpack-1.0.0.tar.gz", hash = "sha256:8b3b3cc00a5ef8e2e95cf49c9e75cce415bd186787fdd160be4fa7b4aba2f1cb", size = 13540 }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/5b/4f/c5b59e8ef0bec7f0c428f2aaab92254a29ceebf12ee46f33d04a72e226cf/decorpack-1.0.0-py3-none-any.whl", hash = "sha256:2b7491d565495c1719154eab48a8e1c1113f166cb6f266415d6d3ac0f4d5033a", size = 5765 },
 ]
 
 [[package]]
