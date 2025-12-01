@@ -1,10 +1,9 @@
-from decorpack.logger import log
-from decorpack.timer import timer
+from pedros.logger import get_logger
 
 
-@timer
 def main() -> None:
-    log.info("Hello from python-template!")
+    logger = get_logger(__name__)
+    logger.info("Hello from python-template!")
 
 
 if __name__ == "__main__":

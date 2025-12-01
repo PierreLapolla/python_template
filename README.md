@@ -62,7 +62,7 @@ Additionally, you can run them manually with the following commands:
   uvx ruff format .
 ```
 
-Or you can run all of them at once using pre-commit::
+Or you can run all of them at once using pre-commit:
 
 ```bash
   uv run pre-commit run --all-files
@@ -70,4 +70,4 @@ Or you can run all of them at once using pre-commit::
 
 ## License
 
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+This project is licensed under the MIT [LICENSE](LICENSE)
