@@ -20,7 +20,6 @@ It aims to enforce best practices and provide a consistent development experienc
 
 ```bash
   uv sync
-  pre-commit install
 ```
 
 ## Running the project
@@ -31,27 +30,10 @@ To run the project locally, run the following command:
   uv run -m src.app
 ```
 
-## Docker Support
-
-You can also run the application in a Docker container:
-
-```bash
-  docker build -t python-app .
-  docker run -it python-app
-```
-
-## Tests, type checks, linting and formatting - AUTOMATED
-
-These steps are automatically handled by [pre-commit](https://pre-commit.com/) hooks defined
-in [.pre-commit-config.yaml](.pre-commit-config.yaml).
-Additionally, you can run them manually with the following commands:
+## Tests, linting and formatting
 
 ```bash
   uv run pytest
-```
-
-```bash
-  uvx ty check
 ```
 
 ```bash
@@ -60,12 +42,6 @@ Additionally, you can run them manually with the following commands:
 
 ```bash
   uvx ruff format .
-```
-
-Or you can run all of them at once using pre-commit:
-
-```bash
-  uv run pre-commit run --all-files
 ```
 
 ## License
