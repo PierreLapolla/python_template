@@ -1,7 +1,6 @@
 # Python App Template
 
-This project provide a template for Python projects, including a basic structure and configuration files to help you get started quickly.
-It aims to enforce best practices and provide a consistent development experience.
+This project provides a starter structure and tooling for Python apps, aiming for a consistent and modern dev experience.
 
 ## Installation
 
@@ -20,6 +19,7 @@ It aims to enforce best practices and provide a consistent development experienc
 
 ```bash
   uv sync
+  uv run pre-commit install
 ```
 
 ## Running the project
@@ -42,6 +42,12 @@ To run the project locally, run the following command:
 
 ```bash
   uvx ruff format .
+```
+
+Run all hooks manually:
+
+```bash
+  uv run pre-commit run --all-files
 ```
 
 ## License

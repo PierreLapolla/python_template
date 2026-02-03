@@ -2,7 +2,7 @@ from pedros.logger import get_logger
 
 
 def main() -> None:
-    logger = get_logger(__name__)
+    logger = get_logger()
     logger.info("Hello from python-template!")
 
 
