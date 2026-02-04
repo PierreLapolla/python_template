@@ -1,3 +1,6 @@
+![Ruff](https://img.shields.io/badge/ruff-enabled-brightgreen)
+![License](https://img.shields.io/badge/license-MIT-green)
+
 # Python App Template
 
 This project provides a starter structure and tooling for Python apps, aiming for a consistent and modern dev experience.
