@@ -1,4 +1,11 @@
 repos:
+  # uv.lock update and requirement.txt generation
+  - repo: https://github.com/astral-sh/uv-pre-commit
+    rev: 0.10.0
+    hooks:
+      - id: uv-lock
+      - id: uv-export
+
   # Lint and format
   - repo: https://github.com/astral-sh/ruff-pre-commit
     rev: v0.14.14

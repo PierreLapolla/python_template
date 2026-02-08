@@ -33,6 +33,20 @@ To run the project locally, run the following command:
   uv run -m src.app
 ```
 
+## Docker
+
+Build the image:
+
+```bash
+  docker build -t python-template .
+```
+
+Run the container:
+
+```bash
+  docker run --rm python-template
+```
+
 ## Tests, linting and formatting
 
 ```bash
