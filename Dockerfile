@@ -45,4 +45,4 @@ COPY --from=builder /opt/venv /opt/venv
 USER appuser
 WORKDIR /app
 
-ENTRYPOINT ["python", "-m", "src.app"]
+ENTRYPOINT ["python", "-m", "app"]
