@@ -67,44 +67,6 @@ Run all hooks manually:
   uv run pre-commit run --all-files
 ```
 
-## GitHub Actions CI/CD
-
-Project includes GitHub Actions workflow at [.github/workflows/pypi-cicd.yml](.github/workflows/pypi-cicd.yml).
-
-What workflow does:
-
-- Runs tests on pushes, pull requests, manual runs
-- Tests against Python `3.13` and `3.14`
-- Builds package with `uv build`
-- Publishes to PyPI when you push tag matching `v*` like `v0.1.0`
-- Uses `uv` for dependency sync, test execution, build, publish
-
-## PyPI token setup
-
-1. Create PyPI API token on [PyPI account settings](https://pypi.org/manage/account/token/).
-2. In GitHub repo, open `Settings` -> `Secrets and variables` -> `Actions`.
-3. Add new repository secret named `PYPI_TOKEN`.
-4. Paste PyPI token value as secret content.
-
-Recommend using project-scoped token for least privilege.
-
-## Release flow
-
-After `PYPI_TOKEN` secret exists:
-
-```bash
-git tag v0.1.0
-git push origin v0.1.0
-```
-
-That tag triggers workflow to:
-
-- run test matrix
-- build distribution
-- publish `dist/*` to PyPI
-
-If you want TestPyPI first, duplicate workflow publish job and switch `uv publish` target to TestPyPI credentials.
-
 ## License
 
 This project is licensed under the MIT [LICENSE](LICENSE)
