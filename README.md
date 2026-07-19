@@ -5,6 +5,8 @@
 
 This project provides a starter structure and tooling for Python apps, aiming for a consistent and modern dev experience.
 
+Read the full [project documentation](https://pierrelapolla.github.io/python_template/).
+
 ## Installation
 
 ### Requirements
@@ -30,7 +32,7 @@ This project provides a starter structure and tooling for Python apps, aiming fo
 To run the project locally, run the following command:
 
 ```bash
-  uv run -m src.app
+  uv run app
 ```
 
 ## Docker
@@ -66,6 +68,13 @@ Run all hooks manually:
 ```bash
   uv run pre-commit run --all-files
 ```
+
+## Documentation
+
+Preview the documentation locally with `uv run zensical serve`. The
+[documentation site](https://pierrelapolla.github.io/python_template/) is
+automatically deployed to GitHub Pages when changes are pushed to `main` or
+`master`.
 
 ## License
 
