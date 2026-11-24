@@ -1,24 +1,27 @@
+# Fast, file-scoped checks only. Tests run in CI (.github/workflows/ci.yml).
+# Update hook versions with: uvx pre-commit autoupdate
+exclude: ^\.idea/
 repos:
-  # uv.lock update and requirement.txt generation (uncomment to enable)
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v6.0.0
+    hooks:
+      - id: check-added-large-files
+      - id: check-case-conflict
+      - id: check-merge-conflict
+      - id: check-toml
+      - id: check-yaml
+      - id: detect-private-key
+      - id: end-of-file-fixer
+      - id: trailing-whitespace
+
   - repo: https://github.com/astral-sh/uv-pre-commit
-    rev: 0.11.0
+    rev: 0.13.9
     hooks:
       - id: uv-lock
-      # - id: uv-export
 
-  # Lint and format
   - repo: https://github.com/astral-sh/ruff-pre-commit
-    rev: v0.15.0
+    rev: v0.17.6
     hooks:
       - id: ruff-check
-        args: [ --fix ]
+        args: [--fix]
       - id: ruff-format
-
-  # Tests
-  - repo: local
-    hooks:
-      - id: pytest
-        name: pytest
-        entry: uv run pytest -q
-        language: system
-        pass_filenames: false
