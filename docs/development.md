@@ -33,10 +33,18 @@ uv run pre-commit run --all-files
 
 ## Bump the version
 
-The `version` job in `.github/workflows/ci.yml` fails unless the version in
-`pyproject.toml` is strictly higher than on the base branch (for pull requests)
-or the previous commit (for pushes to `main` or `master`). Bump at least the
-patch version before opening a pull request:
+`scripts/check_version_bump.py` fails unless the committed version in
+`pyproject.toml` is strictly higher than on a base ref. It runs:
+
+- as a **pre-push** hook, comparing against the merge-base with `origin`'s
+  default branch, so the push is blocked locally;
+- in the `version` job of `.github/workflows/ci.yml`, comparing against the
+  pull request base or the previous commit, as a backstop for
+  `git push --no-verify`.
+
+`uv run pre-commit install` installs both the pre-commit and pre-push hooks.
+Clones set up before this hook existed must run it again. Bump at least the
+patch version once per branch:
 
 ```bash
 uv version --bump patch  # 0.1.0 -> 0.1.1

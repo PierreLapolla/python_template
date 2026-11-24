@@ -71,8 +71,9 @@ Run all hooks manually:
 
 ## Versioning
 
-CI fails unless the version in `pyproject.toml` is higher than on the target
-branch. Bump it in every pull request (or push to `main`/`master`):
+A pre-push hook (installed by `pre-commit install`) blocks the push unless the
+version in `pyproject.toml` is higher than on `origin`'s default branch. CI
+runs the same check as a backstop. Bump it once per branch:
 
 ```bash
   uv version --bump patch  # or minor / major
