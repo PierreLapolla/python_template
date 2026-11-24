@@ -15,6 +15,10 @@ on:
       - "v*.*.*"
 permissions:
   contents: read
+# Cancel superseded pull request builds; never cancel a release.
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: ${{ github.event_name == 'pull_request' }}
 jobs:
   image:
     runs-on: ubuntu-latest

@@ -6,7 +6,7 @@ and a documentation site deployed with GitHub Pages.
 
 ## Get started
 
-You need Python 3.10 or newer and the
+You need Python 3.11 or newer and the
 [uv package manager](https://docs.astral.sh/uv/).
 
 ```bash

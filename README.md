@@ -1,3 +1,4 @@
+![CI](https://github.com/PierreLapolla/python_template/actions/workflows/ci.yml/badge.svg)
 ![Ruff](https://img.shields.io/badge/ruff-enabled-brightgreen)
 ![License](https://img.shields.io/badge/license-MIT-green)
 
