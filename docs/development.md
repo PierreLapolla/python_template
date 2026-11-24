@@ -38,9 +38,11 @@ uv run pre-commit run --all-files
 
 - as a **pre-push** hook, comparing against the merge-base with `origin`'s
   default branch, so the push is blocked locally;
-- in the `version` job of `.github/workflows/ci.yml`, comparing against the
-  pull request base or the previous commit, as a backstop for
-  `git push --no-verify`.
+- in the `version` job of `.github/workflows/ci.yml`, on pull requests,
+  comparing against the pull request base.
+
+Dependabot pull requests are exempt: they only update dependencies, and the
+next regular change bumps the version.
 
 `uv run pre-commit install` installs both the pre-commit and pre-push hooks.
 Clones set up before this hook existed must run it again. Bump at least the

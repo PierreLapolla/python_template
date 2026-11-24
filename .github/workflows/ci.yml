@@ -13,18 +13,18 @@ concurrency:
   cancel-in-progress: true
 jobs:
   version:
-    # Dependabot pull requests update dependencies only, without a version bump.
-    if: github.actor != 'dependabot[bot]'
+    # Pull requests only: merging one (e.g. from Dependabot, which never bumps)
+    # would otherwise fail on master. Direct pushes are checked by the pre-push hook.
+    if: github.event_name == 'pull_request' && github.event.pull_request.user.login != 'dependabot[bot]'
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v7
         with:
           fetch-depth: 0
       - uses: astral-sh/setup-uv@v10.4.0 # no floating major tags since v8
-      # Backstop for the pre-push hook (skipped by `git push --no-verify`).
       - name: Require a version bump
         env:
-          BASE: ${{ github.event.pull_request.base.sha || github.event.before }}
+          BASE: ${{ github.event.pull_request.base.sha }}
         run: uvx --with packaging python scripts/check_version_bump.py "$BASE"
   lint:
     runs-on: ubuntu-latest

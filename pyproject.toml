@@ -1,6 +1,6 @@
 [project]
 name = "app"
-version = "0.1.2"
+version = "0.1.3"
 description = "A modern, ready-to-use Python application template."
 readme = "README.md"
 license = { file = "LICENSE" }

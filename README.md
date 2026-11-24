@@ -74,7 +74,7 @@ Run all hooks manually:
 
 A pre-push hook (installed by `pre-commit install`) blocks the push unless the
 version in `pyproject.toml` is higher than on `origin`'s default branch. CI
-runs the same check as a backstop. Bump it once per branch:
+runs the same check on pull requests (except Dependabot's). Bump it once per branch:
 
 ```bash
   uv version --bump patch  # or minor / major
