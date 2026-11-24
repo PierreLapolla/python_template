@@ -79,6 +79,23 @@ runs the same check as a backstop. Bump it once per branch:
   uv version --bump patch  # or minor / major
 ```
 
+## Release
+
+Once the version bump is merged, tag the commit on `master`:
+
+```bash
+  git switch master && git pull
+  git tag "v$(uv version --short)"
+  git push origin "v$(uv version --short)"
+```
+
+The CD workflow then publishes the Docker image to GitHub Container Registry
+and creates a GitHub release:
+
+```bash
+  docker run --rm ghcr.io/pierrelapolla/python_template:latest
+```
+
 ## Documentation
 
 Preview the documentation locally:

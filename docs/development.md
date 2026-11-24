@@ -61,6 +61,32 @@ docker build -t python-template .
 docker run --rm python-template
 ```
 
+## Release a new version
+
+Releases are driven by git tags and handled by `.github/workflows/cd.yml`:
+
+1. Bump the version in your branch with `uv version --bump patch` (or `minor`,
+   `major`) and merge it into `master`.
+2. Tag the merged commit and push the tag:
+
+    ```bash
+    git switch master && git pull
+    git tag "v$(uv version --short)"
+    git push origin "v$(uv version --short)"
+    ```
+
+3. The workflow checks that the tag matches `pyproject.toml`, builds the image
+   for `linux/amd64` and `linux/arm64`, pushes it to
+   `ghcr.io/<owner>/<repo>` tagged `X.Y.Z`, `X.Y` and `latest`, and creates a
+   GitHub release with generated notes.
+
+Pull requests that change the `Dockerfile`, the source code or the dependencies
+also build the image and run it once as a smoke test, without publishing it.
+
+No secrets are required: the workflow uses the built-in `GITHUB_TOKEN`. If the
+published package is private, change its visibility in the package settings
+on GitHub.
+
 ## Work on the documentation
 
 Start the Zensical development server:

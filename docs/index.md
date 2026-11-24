@@ -32,6 +32,7 @@ The command writes `Hello from python-template!` through the configured logger.
 - Linting and formatting with Ruff
 - Git hooks with pre-commit
 - GitHub Actions CI running hooks and tests, and enforcing a version bump
+- Tag-driven releases publishing the Docker image to GitHub Container Registry
 - A multi-stage, non-root Docker image
 - Documentation built by Zensical and deployed by GitHub Actions
 
