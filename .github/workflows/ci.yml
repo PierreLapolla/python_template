@@ -9,6 +9,8 @@ permissions:
   contents: read
 jobs:
   version:
+    # Dependabot pull requests update dependencies only, without a version bump.
+    if: github.actor != 'dependabot[bot]'
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v7

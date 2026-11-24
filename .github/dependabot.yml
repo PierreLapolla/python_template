@@ -1,0 +1,19 @@
+# Monthly, grouped dependency updates: one pull request per ecosystem.
+# Docker base images and pre-commit hooks are pinned manually (Dockerfile ARGs,
+# `uvx pre-commit autoupdate`), since Dependabot cannot resolve them.
+version: 2
+updates:
+  - package-ecosystem: github-actions
+    directory: /
+    schedule:
+      interval: monthly
+    groups:
+      actions:
+        patterns: ["*"]
+  - package-ecosystem: uv
+    directory: /
+    schedule:
+      interval: monthly
+    groups:
+      python:
+        patterns: ["*"]
