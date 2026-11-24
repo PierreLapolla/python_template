@@ -69,10 +69,24 @@ Run all hooks manually:
   uv run pre-commit run --all-files
 ```
 
+## Versioning
+
+CI fails unless the version in `pyproject.toml` is higher than on the target
+branch. Bump it in every pull request (or push to `main`/`master`):
+
+```bash
+  uv version --bump patch  # or minor / major
+```
+
 ## Documentation
 
-Preview the documentation locally with `uv run zensical serve`. The
-[documentation site](https://pierrelapolla.github.io/python_template/) is
+Preview the documentation locally:
+
+```bash
+  uv run zensical serve
+```
+
+The [documentation site](https://pierrelapolla.github.io/python_template/) is
 automatically deployed to GitHub Pages when changes are pushed to `main` or
 `master`.
 

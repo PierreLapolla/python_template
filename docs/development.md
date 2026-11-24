@@ -31,6 +31,21 @@ Run every configured pre-commit hook:
 uv run pre-commit run --all-files
 ```
 
+## Bump the version
+
+The `version` job in `.github/workflows/ci.yml` fails unless the version in
+`pyproject.toml` is strictly higher than on the base branch (for pull requests)
+or the previous commit (for pushes to `main` or `master`). Bump at least the
+patch version before opening a pull request:
+
+```bash
+uv version --bump patch  # 0.1.0 -> 0.1.1
+uv version --bump minor  # 0.1.1 -> 0.2.0
+uv version --bump major  # 0.2.0 -> 1.0.0
+```
+
+`uv version` updates both `pyproject.toml` and `uv.lock`.
+
 ## Build and run the container
 
 ```bash

@@ -8,6 +8,25 @@ on:
 permissions:
   contents: read
 jobs:
+  version:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          fetch-depth: 0
+      - uses: astral-sh/setup-uv@v10
+      - name: Require a version bump (uv version --bump patch)
+        env:
+          BASE: ${{ github.event.pull_request.base.sha || github.event.before }}
+        run: |
+          read_version() { python3 -c "import sys, tomllib; print(tomllib.load(sys.stdin.buffer)['project']['version'])"; }
+          old=$(git show "$BASE:pyproject.toml" | read_version)
+          new=$(uv version --short)
+          echo "base: $old, current: $new"
+          if [ "$old" = "$new" ] || [ "$(printf '%s\n%s\n' "$old" "$new" | sort -V | tail -n1)" != "$new" ]; then
+            echo "::error file=pyproject.toml::Version must be bumped above $old. Run: uv version --bump patch"
+            exit 1
+          fi
   lint:
     runs-on: ubuntu-latest
     steps:
